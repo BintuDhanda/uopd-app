@@ -1,0 +1,7 @@
+{
+  "name": "uopd",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
