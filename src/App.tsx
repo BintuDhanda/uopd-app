@@ -17,6 +17,7 @@ import { desktop, help, home } from 'ionicons/icons';
 import HomeTab from './tabs/HomeTab';
 import MyAppointmentsTab from './tabs/MyAppointmentsTab';
 import HelpDeskTab from './tabs/HelpDeskTab';
+import SearchResultsScreen from './screens/SearchResultsScreen';
 
 import Login from "./screens/LoginScreen";
 import Signup from "./screens/Signup"; // <- added signup import (make sure path is correct)
@@ -81,6 +82,10 @@ const App: React.FC = () => {
 
               <Route exact path="/appointments">
                 <MyAppointmentsTab />
+              </Route>
+
+              <Route exact path="/search">
+                <SearchResultsScreen />
               </Route>
 
               <Route path="/helpdesk">
