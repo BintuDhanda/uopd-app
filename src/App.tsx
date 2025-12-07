@@ -135,10 +135,6 @@ const App: React.FC = () => {
                 <Redirect to="/login" />
               </Route>
               
-              {/* any unknown route while not logged in -> login */}
-              <Route path="*">
-                <Redirect to="/login" />
-              </Route>
             </IonRouterOutlet>
           </>
         )}

@@ -12,10 +12,10 @@ import {
   IonButton,
   IonBadge
 } from '@ionic/react';
-import { useNavigate } from 'react-router-dom';
+
 
 const SearchResultsScreen: React.FC = () => {
-  const navigate = useNavigate();
+  
 
   const results: Array<
     | { type: 'doctor'; id: number; name: string; spec: string; distance?: string }
@@ -27,13 +27,13 @@ const SearchResultsScreen: React.FC = () => {
     { type: 'hospital', id: 11, name: 'HealthCare Clinic', address: 'Main St', distance: '4.1 km' },
   ];
 
-  const onBookOPD = (doctorId: number) => {
-    navigate('/tabs/appointments?doctor=' + doctorId);
-  };
+//   const onBookOPD = (doctorId: number) => {
+//     navigate('/tabs/appointments?doctor=' + doctorId);
+//   };
 
-  const onViewHospitalDoctors = (hospitalId: number) => {
-    navigate('/tabs/doctors?hospital=' + hospitalId);
-  };
+//   const onViewHospitalDoctors = (hospitalId: number) => {
+//     navigate('/tabs/doctors?hospital=' + hospitalId);
+//   };
 
   return (
     <IonPage>
@@ -53,7 +53,7 @@ const SearchResultsScreen: React.FC = () => {
                   <p>{r.spec} {r.distance ? `— ${r.distance}` : ''}</p>
                 </IonLabel>
                 <IonBadge slot="end">{r.spec}</IonBadge>
-                <IonButton slot="end" onClick={() => onBookOPD(r.id)}>Book OPD</IonButton>
+                {/* <IonButton slot="end" onClick={() => onBookOPD(r.id)}>Book OPD</IonButton> */}
               </IonItem>
             ) : (
               <IonItem key={`h-${r.id}`}>
@@ -61,7 +61,7 @@ const SearchResultsScreen: React.FC = () => {
                   <h3>{r.name}</h3>
                   <p>{r.address ? r.address + ' • ' : ''}{r.distance ? r.distance : ''}</p>
                 </IonLabel>
-                <IonButton slot="end" onClick={() => onViewHospitalDoctors(r.id)}>View Doctors</IonButton>
+                {/* <IonButton slot="end" onClick={() => onViewHospitalDoctors(r.id)}>View Doctors</IonButton> */}
               </IonItem>
             )
           )}

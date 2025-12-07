@@ -1,3 +1,4 @@
+// src/pages/Login.tsx
 import React, { useState } from "react";
 import {
   IonPage,
@@ -5,11 +6,17 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardContent,
   IonItem,
   IonLabel,
   IonInput,
   IonButton,
-  IonToast
+  IonToast,
+  IonText
 } from "@ionic/react";
 
 interface LoginProps {
@@ -37,50 +44,61 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding" scrollY={true}>
+      <IonContent className="ion-padding" fullscreen>
+        <IonGrid>
+          <IonRow className="ion-justify-content-center ion-align-items-center" style={{ minHeight: "60vh" }}>
+            <IonCol size="12" sizeMd="6" sizeLg="4">
+              <IonCard>
+                <IonCardContent>
+                  <IonText>
+                    <h2 style={{ marginTop: 0, marginBottom: 8 }}>Welcome back</h2>
+                    <p style={{ marginTop: 0, marginBottom: 12, color: "var(--ion-color-medium)" }}>
+                      Sign in to continue
+                    </p>
+                  </IonText>
 
-        {/* Email or Phone */}
-        <IonItem lines="full" className="ion-margin-bottom">
-          <IonLabel position="floating">Email ID or Phone</IonLabel>
-          <IonInput
-            type="text"
-            placeholder="Enter email or phone"
-            value={emailOrPhone}
-            onIonChange={(e) => setEmailOrPhone(e.detail.value || "")}
-          />
-        </IonItem>
+                  <IonItem lines="full" className="ion-margin-bottom">
+                    <IonLabel position="stacked">Email ID or Phone</IonLabel>
+                    <IonInput
+                      type="text"
+                      value={emailOrPhone}
+                      placeholder="example@mail.com or +91-XXXXXXXXXX"
+                      onIonChange={(e) => setEmailOrPhone(e.detail.value ?? "")}
+                      clearInput
+                      inputmode="email"
+                    />
+                  </IonItem>
 
-        {/* Password */}
-        <IonItem lines="full" className="ion-margin-bottom">
-          <IonLabel position="floating">Password</IonLabel>
-          <IonInput
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onIonChange={(e) => setPassword(e.detail.value || "")}
-          />
-        </IonItem>
+                  <IonItem lines="full" className="ion-margin-bottom">
+                    <IonLabel position="stacked">Password</IonLabel>
+                    <IonInput
+                      type="password"
+                      value={password}
+                      placeholder="Enter password"
+                      onIonChange={(e) => setPassword(e.detail.value ?? "")}
+                      clearInput
+                    />
+                  </IonItem>
 
-        {/* Login Button */}
-        <IonButton
-          expand="block"
-          className="ion-margin-top"
-          onClick={handleLoginClick}
-          color="primary"
-        >
-          Login
-        </IonButton>
+                  <IonButton expand="block" color="primary" onClick={handleLoginClick}>
+                    Login
+                  </IonButton>
 
-        <IonButton
-          expand="block"
-          fill="clear"
-          routerLink="/signup"
-          className="ion-margin-top"
-        >
-          Don't have an account? Sign Up
-        </IonButton>
+                  <IonButton expand="block" fill="clear" routerLink="/signup" className="ion-margin-top">
+                    Don't have an account? Sign Up
+                  </IonButton>
+                </IonCardContent>
+              </IonCard>
 
-        {/* Toast for validation */}
+              <div style={{ textAlign: "center", marginTop: 8 }}>
+                <IonText color="medium">
+                  <small>By continuing you agree to our Terms & Privacy</small>
+                </IonText>
+              </div>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+
         <IonToast
           isOpen={showToast}
           message="Please fill all fields"
