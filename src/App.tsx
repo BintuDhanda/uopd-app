@@ -76,30 +76,20 @@ const App: React.FC = () => {
         {isLoggedIn ? (
           <IonTabs>
             <IonRouterOutlet>
-              <Route exact path="/home">
+              <Route path="/home">
                 <HomeTab />
               </Route>
 
-              <Route exact path="/appointments">
+              <Route  path="/appointments">
                 <MyAppointmentsTab />
               </Route>
 
-              <Route exact path="/search">
+              <Route  path="/search">
                 <SearchResultsScreen />
               </Route>
 
               <Route path="/helpdesk">
                 <HelpDeskTab />
-              </Route>
-
-              {/* If user is logged in and hits root, send them to /home */}
-              <Route exact path="/">
-                <Redirect to="/home" />
-              </Route>
-
-              {/* catch-all while logged in (optional) */}
-              <Route path="*">
-                <Redirect to="/home" />
               </Route>
             </IonRouterOutlet>
 
