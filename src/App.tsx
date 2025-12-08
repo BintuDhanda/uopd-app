@@ -77,7 +77,7 @@ const App: React.FC = () => {
           <IonTabs>
             <IonRouterOutlet>
               <Route path="/home">
-                <HomeTab />
+                <HomeTab onLogout={handleLogout} />
               </Route>
 
               <Route  path="/appointments">
