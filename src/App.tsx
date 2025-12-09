@@ -94,19 +94,22 @@ const App: React.FC = () => {
             </IonRouterOutlet>
 
             <IonTabBar slot="bottom">
-              <IonTabButton tab="home" href="/home">
-                <IonIcon aria-hidden="true" icon={home} />
-                <IonLabel>Home</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="appointments" href="/appointments">
-                <IonIcon aria-hidden="true" icon={desktop} />
-                <IonLabel>Appointments</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="helpdesk" href="/helpdesk">
-                <IonIcon aria-hidden="true" icon={help} />
-                <IonLabel>Helpdesk</IonLabel>
-              </IonTabButton>
-            </IonTabBar>
+  <IonTabButton tab="home" href="/home" className={window.location.pathname === "/home" ? "tab-selected" : ""}>
+    <IonIcon icon={home} />
+    <IonLabel>Home</IonLabel>
+  </IonTabButton>
+
+  <IonTabButton tab="appointments" href="/appointments" className={window.location.pathname === "/appointments" ? "tab-selected" : ""}>
+    <IonIcon icon={desktop} />
+    <IonLabel>Appointments</IonLabel>
+  </IonTabButton>
+
+  <IonTabButton tab="helpdesk" href="/helpdesk" className={window.location.pathname === "/helpdesk" ? "tab-selected" : ""}>
+    <IonIcon icon={help} />
+    <IonLabel>Help</IonLabel>
+  </IonTabButton>
+</IonTabBar>
+
           </IonTabs>
         ) : (
           <>

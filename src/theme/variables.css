@@ -1,2 +1,37 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* BOTTOM TAB BAR CUSTOM STYLE */
+ion-tab-bar {
+    --background: #ffffff;
+    --border-color: #e5e7eb;
+    border-top: 1px solid var(--border-color);
+    padding: 4px 0;
+    height: 62px;
+  }
+  
+  ion-tab-button {
+    --color: #9ca3af; /* inactive */
+    --color-selected: #2563eb; /* active */
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  
+  ion-tab-button ion-icon {
+    font-size: 22px;
+  }
+  
+  ion-tab-button.tab-selected ion-label {
+    font-weight: 600;
+  }
+  
+  /* ACTIVE INDICATOR */
+  /* ion-tab-button.tab-selected::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 4px;
+    background: #2563eb;
+    border-radius: 999px;
+  } */
+  
