@@ -1,0 +1,32 @@
+/* Safe-area handling (iOS notch + Android gesture bar) */
+ion-content {
+    --padding-top: env(safe-area-inset-top);
+    --padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Remove tap highlight */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Cards */
+  ion-card {
+    border-radius: 16px;
+  }
+  
+  /* Buttons */
+  ion-button {
+    text-transform: none;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+  
+  /* Platform-specific polish */
+  .md ion-card {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ios ion-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  

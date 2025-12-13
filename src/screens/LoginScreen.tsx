@@ -1,174 +1,402 @@
-import React, { useState } from "react";
+// import {
+//   IonPage,
+//   IonContent,
+//   IonCard,
+//   IonButton,
+//   IonIcon,
+//   IonText
+// } from "@ionic/react";
+// import {
+//   documentTextOutline,
+//   shieldCheckmarkOutline,
+//   briefcaseOutline,
+//   documentOutline,
+//   shieldOutline
+// } from "ionicons/icons";
+
+// const fontFamily =
+//   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
+// const RoleLogin = () => {
+//   return (
+//     <IonPage>
+//       <IonContent
+//         fullscreen
+//         style={{
+//           "--background": "#F8FAFC",
+//           fontFamily
+//         }}
+//       >
+//         {/* ================= CENTER LAYOUT ================= */}
+//         <div
+//           style={{
+//             maxWidth: 520,          // 🔑 controls web width
+//             margin: "0 auto",      // 🔑 centers on web
+//             padding: "20px"
+//           }}
+//         >
+//           {/* ================= HEADER ================= */}
+//           <div style={{ textAlign: "center", marginTop: 24, marginBottom: 32 }}>
+//             <div
+//               style={{
+//                 width: 64,
+//                 height: 64,
+//                 margin: "0 auto 12px",
+//                 borderRadius: 18,
+//                 background: "linear-gradient(135deg,#4F46E5,#6366F1)",
+//                 display: "flex",
+//                 alignItems: "center",
+//                 justifyContent: "center"
+//               }}
+//             >
+//               <IonIcon
+//                 icon={documentTextOutline}
+//                 style={{ fontSize: 32, color: "#FFFFFF" }}
+//               />
+//             </div>
+
+//             <h1
+//               style={{
+//                 margin: 0,
+//                 fontSize: 22,
+//                 fontWeight: 600,
+//                 lineHeight: "28px",
+//                 color: "#111827"
+//               }}
+//             >
+//               Healthcare Platform
+//             </h1>
+
+//             <p
+//               style={{
+//                 marginTop: 6,
+//                 marginBottom: 18,
+//                 fontSize: 14,
+//                 lineHeight: "20px",
+//                 color: "#6B7280"
+//               }}
+//             >
+//               Manage hospitals, doctors & appointments
+//             </p>
+
+//             <IonText style={{ fontSize: 15, fontWeight: 500, color: "#374151" }}>
+//               Login As
+//             </IonText>
+//           </div>
+
+//           {/* ================= APP ADMIN ================= */}
+//           <IonCard
+//             style={{
+//               background: "#FFFFFF",
+//               borderRadius: 18,
+//               padding: 18,
+//               marginBottom: 18,
+//               border: "2px solid #E9D5FF",
+//               boxShadow: "0 10px 24px rgba(0,0,0,0.06)"
+//             }}
+//           >
+//             <div style={{ display: "flex", gap: 14, marginBottom: 18 }}>
+//               <div
+//                 style={{
+//                   width: 44,
+//                   height: 44,
+//                   borderRadius: 12,
+//                   background: "#F5F3FF",
+//                   display: "flex",
+//                   alignItems: "center",
+//                   justifyContent: "center",
+//                   color: "#7C3AED"
+//                 }}
+//               >
+//                 <IonIcon icon={shieldCheckmarkOutline} />
+//               </div>
+
+//               <div>
+//                 <h3 style={{ color: "oklch(21% .034 264.665)", margin: 0, fontSize: 16, fontWeight: 500 }}>
+//                   App Admin
+//                 </h3>
+//                 <p style={{ marginTop: 4, fontSize: 13, color: "#6B7280" }}>
+//                   Manage platform & process payments
+//                 </p>
+//               </div>
+//             </div>
+
+//             <IonButton
+            
+//               expand="block"
+//               style={{
+//                 "--background": "oklch(55.8% .288 302.321)",
+//                 "--border-radius": "14px",
+//                 "--box-shadow": "none",
+//                 height: 46,
+//                 fontSize: 15,
+//                 fontWeight: 500
+//               }}
+//             >
+//               Admin Login
+//             </IonButton>
+//           </IonCard>
+
+//           {/* ================= SALES PARTNER ================= */}
+//           <IonCard
+//             style={{
+//               background: "#FFFFFF",
+//               borderRadius: 18,
+//               padding: 18,
+//               marginBottom: 18,
+//               boxShadow: "0 10px 24px rgba(0,0,0,0.06)"
+//             }}
+//           >
+//             <div style={{ display: "flex", gap: 14, marginBottom: 18 }}>
+//               <div
+//                 style={{
+//                   width: 44,
+//                   height: 44,
+//                   borderRadius: 12,
+//                   background: "#EFF6FF",
+//                   display: "flex",
+//                   alignItems: "center",
+//                   justifyContent: "center",
+//                   color: "#2563EB"
+//                 }}
+//               >
+//                 <IonIcon icon={briefcaseOutline} />
+//               </div>
+
+//               <div>
+//                 <h3 style={{ color: "oklch(21% .034 264.665)", margin: 0, fontSize: 16, fontWeight: 500 }}>
+//                   Sales Partner
+//                 </h3>
+//                 <p style={{ marginTop: 4, fontSize: 13, color: "#6B7280" }}>
+//                   Onboard hospitals & earn commission
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* Buttons: full width INSIDE fixed card */}
+//             <div style={{ display: "flex", gap: 12 }}>
+//               <IonButton
+//                 expand="block"
+//                 style={{
+//                   "--background": "#2563EB",
+//                   "--border-radius": "14px",
+//                   "--box-shadow": "none",
+//                   height: 44,
+//                   width: "-webkit-fill-available",
+//                   fontSize: 15,
+//                   fontWeight: 500
+//                 }}
+//               >
+//                 Login
+//               </IonButton>
+
+//               <IonButton
+//                 expand="block"
+//                 fill="outline"
+//                 style={{
+//                   "--border-color": "#2563EB",
+//                   "--color": "#2563EB",
+//                   "--border-radius": "14px",
+//                   "--border-width": "1px",
+//                   "--box-shadow": "none",
+//                   height: 44,
+//                   width: "-webkit-fill-available",
+//                   fontSize: 15,
+//                   fontWeight: 500
+//                 }}
+//               >
+//                 Register
+//               </IonButton>
+//             </div>
+//           </IonCard>
+
+//           {/* ================= HOSPITAL ADMIN ================= */}
+//           <IonCard
+//             style={{
+//               background: "#FFFFFF",
+//               borderRadius: 18,
+//               padding: 18,
+//               marginBottom: 22,
+//               boxShadow: "0 10px 24px rgba(0,0,0,0.06)"
+//             }}
+//           >
+//             <div style={{ display: "flex", gap: 14, marginBottom: 18 }}>
+//               <div
+//                 style={{
+//                   width: 44,
+//                   height: 44,
+//                   borderRadius: 12,
+//                   background: "#ECFDF5",
+//                   display: "flex",
+//                   alignItems: "center",
+//                   justifyContent: "center",
+//                   color: "#16A34A"
+//                 }}
+//               >
+//                 <IonIcon icon={documentOutline} />
+//               </div>
+
+//               <div>
+//                 <h3 style={{ color: "oklch(21% .034 264.665)", margin: 0, fontSize: 16, fontWeight: 500 }}>
+//                   Hospital Admin
+//                 </h3>
+//                 <p style={{ marginTop: 4, fontSize: 13, color: "#6B7280" }}>
+//                   Manage doctors & view earnings
+//                 </p>
+//               </div>
+//             </div>
+
+//             <IonButton
+//               expand="block"
+//               style={{
+//                 "--background": "#16A34A",
+//                 "--border-radius": "14px",
+//                 "--box-shadow": "none",
+//                 height: 46,
+//                 fontSize: 15,
+//                 fontWeight: 500
+//               }}
+//             >
+//               Login
+//             </IonButton>
+//           </IonCard>
+
+//           {/* ================= DEMO ACCESS ================= */}
+//           <IonCard
+//             style={{
+//               backgroundColor:"#eff6ff" ,
+//               border: "1px solid oklch(93.2% .032 255.585)",
+//               borderRadius: 14,
+//               padding: 16
+//             }}
+//           >
+//             <div style={{ display: "flex", gap: 10 }}>
+//               <IonIcon icon={shieldOutline} style={{ color: "#2563EB" }} />
+//               <p style={{ margin: 0, fontSize: 13, color: "#2563EB" }}>
+//                 <strong>Demo Access</strong>
+//                 <br />
+//                 Click any role to explore the platform features with demo data.
+//               </p>
+//             </div>
+//           </IonCard>
+//         </div>
+//       </IonContent>
+//     </IonPage>
+//   );
+// };
+
+// export default RoleLogin;
+
 import {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonCard,
-    IonCardContent,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonButton,
-    IonToast,
-    IonText,
-    IonIcon,
-    IonCheckbox,
-    IonNote,
-    IonSpinner
+  IonPage,
+  IonContent,
+  IonCard,
+  IonButton,
+  IonIcon,
+  IonText
 } from "@ionic/react";
-import { eye, eyeOff, logoGoogle, logoFacebook } from "ionicons/icons";
+import {
+  documentTextOutline,
+  shieldCheckmarkOutline,
+  briefcaseOutline,
+  documentOutline,
+  shieldOutline
+} from "ionicons/icons";
 
-interface LoginProps {
-    onLogin: () => void;
-}
 
-const styles: { [k: string]: React.CSSProperties } = {
-    centerRow: { minHeight: "70vh" },
-    card: { borderRadius: 10, padding: 0, overflow: "hidden" },
-    headerArea: { background: "linear-gradient(135deg,#2b8cff,#6b6bff)", color: "white", padding: "20px 16px" },
-    brand: { display: "flex", alignItems: "center", gap: 12 },
-    logoCircle: { width: 52, height: 52, borderRadius: 12, background: "rgba(255,255,255,0.14)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 },
-    formArea: { padding: 18 },
-    smallMuted: { color: "var(--ion-color-medium)", marginTop: 6 },
-    socialBtn: { display: "flex", alignItems: "center", gap: 10, justifyContent: "center" }
+const RoleLogin: React.FC = () => {
+  return (
+    <IonPage>
+      <IonContent fullscreen className="role-login">
+        <div className="role-login__container">
+          {/* Header */}
+          <div className="role-login__header">
+            <div className="role-login__logo">
+              <IonIcon icon={documentTextOutline} />
+            </div>
+
+            <h1>Healthcare Platform</h1>
+            <p>Manage hospitals, doctors & appointments</p>
+
+            <IonText className="role-login__subtitle">
+              Login As
+            </IonText>
+          </div>
+
+          {/* App Admin */}
+          <IonCard className="role-card role-card--admin">
+            <div className="role-card__info">
+              <div className="role-card__icon admin">
+                <IonIcon icon={shieldCheckmarkOutline} />
+              </div>
+              <div>
+                <h3>App Admin</h3>
+                <p>Manage platform & process payments</p>
+              </div>
+            </div>
+
+            <IonButton expand="block" className="btn btn--admin">
+              Admin Login
+            </IonButton>
+          </IonCard>
+
+          {/* Sales Partner */}
+          <IonCard className="role-card">
+            <div className="role-card__info">
+              <div className="role-card__icon sales">
+                <IonIcon icon={briefcaseOutline} />
+              </div>
+              <div>
+                <h3>Sales Partner</h3>
+                <p>Onboard hospitals & earn commission</p>
+              </div>
+            </div>
+
+            <div className="role-card__actions">
+              <IonButton expand="block" className="btn btn--sales">
+                Login
+              </IonButton>
+
+              <IonButton
+                expand="block"
+                fill="outline"
+                className="btn btn--sales-outline"
+              >
+                Register
+              </IonButton>
+            </div>
+          </IonCard>
+
+          {/* Hospital Admin */}
+          <IonCard className="role-card">
+            <div className="role-card__info">
+              <div className="role-card__icon hospital">
+                <IonIcon icon={documentOutline} />
+              </div>
+              <div>
+                <h3>Hospital Admin</h3>
+                <p>Manage doctors & view earnings</p>
+              </div>
+            </div>
+
+            <IonButton expand="block" className="btn btn--hospital">
+              Login
+            </IonButton>
+          </IonCard>
+
+          {/* Demo Access */}
+          <IonCard className="demo-card">
+            <IonIcon icon={shieldOutline} />
+            <p>
+    <strong>Demo Access</strong>
+    Click any role to explore the platform features with demo data.
+  </p>
+          </IonCard>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
 };
 
-const Login: React.FC<LoginProps> = ({ onLogin }) => {
-    const [emailOrPhone, setEmailOrPhone] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [showToast, setShowToast] = useState<boolean>(false);
-    const [toastMsg, setToastMsg] = useState<string>("");
-    const [loading, setLoading] = useState<boolean>(false);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [remember, setRemember] = useState<boolean>(false);
+export default RoleLogin;
 
-    const validate = () => {
-        if (emailOrPhone.trim() === "") {
-            setToastMsg("Please enter email or phone");
-            setShowToast(true);
-            return false;
-        }
-        if (password.trim() === "") {
-            setToastMsg("Please enter password");
-            setShowToast(true);
-            return false;
-        }
-        return true;
-    };
-
-    const handleLoginClick = async () => {
-        if (!validate()) return;
-
-        setLoading(true);
-        try {
-            // simulate API/login flow
-            await new Promise((res) => setTimeout(res, 700));
-            onLogin();
-        } catch (err) {
-            setToastMsg("Login failed. Try again.");
-            setShowToast(true);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-        <IonPage>
-        
-            <IonContent className="ion-padding" fullscreen>
-                <IonGrid>
-                    <IonRow
-  className="ion-justify-content-center ion-align-items-center"
-  style={{ height: "100vh", display: "flex" }}
->
-
-                        <IonCol size="12" sizeMd="6" sizeLg="4">
-                            <IonCard style={styles.card}>
-                                <div style={styles.headerArea}>
-                                    <div style={styles.brand}>
-                                        <div>
-                                            <h3 style={{ margin: 0 }}>Welcome back</h3>
-                                            <IonText style={{ fontSize: 14 }}>Sign in to continue to your account</IonText>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <IonCardContent style={styles.formArea}>
-                                    <IonItem lines="inset" className="ion-margin-bottom">
-                                       
-                                        <IonInput
-                                            type="text"
-                                            value={emailOrPhone}
-                                            placeholder="Email or Phone"
-                                            onIonChange={(e) => setEmailOrPhone(e.detail.value ?? "")}
-                                            clearInput
-                                            inputmode="email"
-                                            aria-label="email or phone"
-                                        />
-                                       
-                                    </IonItem>
-
-                                    <IonItem lines="inset" className="ion-margin-bottom">
-                                        <IonLabel position="stacked">Password</IonLabel>
-                                        <IonInput
-                                            type={showPassword ? "text" : "password"}
-                                            value={password}
-                                            placeholder="Enter password"
-                                            onIonChange={(e) => setPassword(e.detail.value ?? "")}
-                                            clearInput
-                                            aria-label="password"
-                                        />
-                                        <IonButton fill="clear" onClick={() => setShowPassword((s) => !s)} slot="end" aria-label="toggle password">
-                                            <IonIcon icon={showPassword ? eyeOff : eye} />
-                                        </IonButton>
-                                    </IonItem>
-
-                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                                            <IonCheckbox checked={remember} onIonChange={(e) => setRemember(e.detail.checked)} />
-                                            <IonText>Remember me</IonText>
-                                        </div>
-
-                                        <IonButton fill="clear" size="small" routerLink="/forgot">
-                                            Forgot?
-                                        </IonButton>
-                                    </div>
-
-                                    <IonButton expand="block" onClick={handleLoginClick} disabled={loading}>
-                                        {loading ? <><IonSpinner name="dots" /> &nbsp;Signing in...</> : "Login"}
-                                    </IonButton>
-
-                                    <div style={{ textAlign: "center", marginTop: 12 }}>
-                                    
-
-
-                                        <div style={{ marginTop: 12 }}>
-                                            <IonButton expand="block" fill="clear" routerLink="/signup">
-                                                Don't have an account? Sign Up
-                                            </IonButton>
-                                        </div>
-
-                                        <div style={{ marginTop: 6 }}>
-                                            <IonText color="medium">
-                                                <small>By continuing you agree to our Terms & Privacy</small>
-                                            </IonText>
-                                        </div>
-                                    </div>
-                                </IonCardContent>
-                            </IonCard>
-                        </IonCol>
-                    </IonRow>
-                </IonGrid>
-
-                <IonToast isOpen={showToast} message={toastMsg || "Please fill all fields"} duration={1500} onDidDismiss={() => setShowToast(false)} />
-            </IonContent>
-        </IonPage>
-    );
-};
-
-export default Login;

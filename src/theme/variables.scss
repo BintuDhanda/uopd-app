@@ -1,3 +1,30 @@
+/* Ionic Core CSS (REQUIRED) */
+@import "@ionic/react/css/core.css";
+@import "@ionic/react/css/normalize.css";
+@import "@ionic/react/css/structure.css";
+@import "@ionic/react/css/typography.css";
+
+/* Ionic Utility CSS */
+@import "@ionic/react/css/padding.css";
+@import "@ionic/react/css/flex-utils.css";
+@import "@ionic/react/css/display.css";
+
+/* Global Design Tokens */
+:root {
+  --ion-font-family: -apple-system, BlinkMacSystemFont,
+    "San Francisco", "Roboto", "Helvetica Neue", Arial, sans-serif;
+
+  --ion-background-color: #f7f9fc;
+
+  --color-primary: #2563eb;
+  --color-success: #16a34a;
+  --color-muted: #6b7280;
+}
+
+
+
+
+
 /* BOTTOM TAB BAR CUSTOM STYLE */
 ion-tab-bar {
     --background: #ffffff;
