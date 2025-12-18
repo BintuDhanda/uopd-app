@@ -1,177 +1,173 @@
-.role-login {
-  --background: #f8fafc;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+.login {
+    --background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
 
-  &__container {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  &__header {
-    text-align: center;
-    margin: 24px 0 32px;
-
-    h1 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 600;
-      color: #111827;
+    &__container {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 40px 24px;
     }
 
-    p {
-      margin: 6px 0 18px;
-      font-size: 14px;
-      color: #6b7280;
-    }
-  }
+    /* ---------- HEADER ---------- */
 
-  &__logo {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 12px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &__header {
+        text-align: center;
+        margin-bottom: 36px;
 
-    ion-icon {
-      font-size: 32px;
-      color: #fff;
-    }
-  }
+        h1 {
+            margin: 18px 0 6px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #111827;
+        }
 
-  &__subtitle {
-    font-size: 15px;
-    font-weight: 500;
-    color: #374151;
-  }
-}
-
-/* ================= ROLE CARD ================= */
-
-.role-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-
-  .role-card__actions {
-    display: flex;
-    gap: 12px;
-  
-    ion-button {
-      flex: 1;
-    }
-  }
-  
-
-  &--admin {
-    border: 2px solid #e9d5ff;
-  }
-
-  &__info {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 18px;
-
-    h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 500;
-      color: #111827;
+        p {
+            margin: 0;
+            font-size: 15px;
+            color: #6b7280;
+        }
     }
 
-    p {
-      margin-top: 4px;
-      font-size: 13px;
-      color: #6b7280;
-    }
-  }
+    &__logo {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #155dfc, #4f39f6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-  &__icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &.admin {
-      background: #f5f3ff;
-      color: #7c3aed;
+        ion-icon {
+            font-size: 34px;
+            color: #ffffff;
+        }
     }
 
-    &.sales {
-      background: #eff6ff;
-      color: #2563eb;
+    /* ---------- INPUTS ---------- */
+
+    &__field {
+        margin-bottom: 22px;
+
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+            display: block;
+        }
     }
 
-    &.hospital {
-      background: #ecfdf5;
-      color: #16a34a;
+    &__input {
+        height: 58px;
+        background: #f3f4f6;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        padding: 0 18px;
+        gap: 14px;
+
+        ion-icon {
+            font-size: 20px;
+            color: #9ca3af;
+        }
+
+        ion-input {
+            --background: transparent;
+            --padding-start: 0;
+            --padding-end: 0;
+            --highlight-height: 0;
+            --border-width: 0;
+            font-size: 16px;
+            color: #111827;
+        }
+
+
+        .eye {
+            cursor: pointer;
+            color: #9ca3af;
+
+            &:active {
+                opacity: 0.7;
+            }
+        }
+
+
     }
-  }
 
-  &__actions {
-    display: flex;
-    gap: 12px;
-  }
-}
+    /* ---------- ROLE SWITCH ---------- */
 
-/* ================= BUTTONS ================= */
+    &__role {
+        margin: 8px 0 18px;
+    }
 
-.btn {
-  --border-radius: 14px;
-  --box-shadow: none;
-  height: 46px;
-  font-size: 15px;
-  font-weight: 500;
+    &__role-switch {
+        display: flex;
+        gap: 14px;
 
-  &--admin {
-    --background: #7c3aed;
-  }
+        ion-button {
+            flex: 1;
+            height: 50px;
+            --border-radius: 18px;
+            --background: #f3f4f6;
+            --color: #374151;
+            --box-shadow: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
 
-  &--sales {
-    --background: #2563eb;
-  }
+        .active {
+            --background: #155dfc;
+            --color: #ffffff;
+        }
+    }
 
-  &--sales-outline {
-    --border-color: #2563eb;
-    --color: #2563eb;
-  }
+    /* ---------- LINKS ---------- */
 
-  &--hospital {
-    --background: #16a34a;
-  }
-}
+    &__forgot {
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        color: #155dfc;
+        margin-bottom: 28px;
+    }
 
-/* ================= DEMO CARD ================= */
+    /* ---------- BUTTON ---------- */
 
-.demo-card {
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
-  border-radius: 14px;
-  padding: 16px;
-  display: flex;
-  gap: 10px;
+    &__btn {
+        --background: #155dfc;
+        --border-radius: 18px;
+        height: 58px;
+        font-size: 16px;
+        font-weight: 600;
+        --box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
+    }
 
-  ion-icon {
-    color: #2563eb;
-    font-size: 18px;
-  }
+    .login__btn {
+        --background: #155dfc;
+        --color: #ffffff; // ✅ text color
+        --border-radius: 18px;
+        --box-shadow: none; // ✅ remove shadow
+        height: 58px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize; // ✅ Capitalize text
+    }
 
-  p {
-    margin: 0;
-    font-size: 13px;
-    color: #2563eb;
-  }
 
-  strong {
-    display: block;
-    margin-bottom: 8px;
-  }
+    /* ---------- FOOTER ---------- */
+
+    &__footer {
+        display: block;
+        text-align: center;
+        margin-top: 34px;
+        font-size: 14px;
+        color: #6b7280;
+
+        span {
+            color: #155dfc;
+            font-weight: 500;
+        }
+    }
 }
