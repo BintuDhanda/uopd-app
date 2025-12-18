@@ -15,6 +15,8 @@ import {
 } from "ionicons/icons";
 
 const RoleLogin: React.FC = () => {
+
+
   return (
     <IonPage>
       <IonContent fullscreen className="role-login">
@@ -70,6 +72,7 @@ const RoleLogin: React.FC = () => {
               <IonButton
                 expand="block"
                 fill="outline"
+                routerLink="/register"
                 className="btn btn--sales-outline"
               >
                 Register
