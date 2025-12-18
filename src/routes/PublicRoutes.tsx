@@ -27,7 +27,6 @@ const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
 
     {/* Acts as a catch-all fallback
         Redirects any unknown route to / */}
-
     <Redirect to="/" />
 
   </IonRouterOutlet>
