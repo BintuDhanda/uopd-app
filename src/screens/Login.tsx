@@ -5,7 +5,8 @@ import {
     IonInput,
     IonButton,
     IonIcon,
-    IonRouterLink
+    IonRouterLink,
+    useIonRouter
 } from "@ionic/react";
 import {
     mailOutline,
@@ -17,10 +18,15 @@ import {
 import { useState } from "react";
 
 
-const Login: React.FC = () => {
+const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     const [role, setRole] = useState<"patient" | "doctor">("patient");
     const [showPassword, setShowPassword] = useState(false);
+    const ionRouter = useIonRouter();
 
+    const handleLogin = () => {
+        onLogin();                 // sets isLoggedIn = true
+        ionRouter.push("/home", "root"); // 🔥 THIS FIXES BLANK SCREEN
+      };
 
     return (
         <IonPage>
@@ -85,7 +91,7 @@ const Login: React.FC = () => {
                         Forgot Password?
                     </IonText>
 
-                    <IonButton expand="block" className="login__btn">
+                    <IonButton expand="block" onClick={handleLogin} className="login__btn">
                         Sign In
                     </IonButton>
 

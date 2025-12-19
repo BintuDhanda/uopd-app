@@ -73,20 +73,20 @@ const RoleLogin: React.FC = () => {
             <div className="role-card__actions">
               <IonButton
                 expand="block"
-                routerLink="/login"
+                routerLink="/login/sales"
                 className="btn btn--sales"
               >
                 Login
               </IonButton>
 
-              <IonButton
+              {/* <IonButton
                 expand="block"
                 fill="outline"
                 routerLink="/register"
                 className="btn btn--sales-outline"
               >
                 Register
-              </IonButton>
+              </IonButton> */}
             </div>
           </IonCard>
 

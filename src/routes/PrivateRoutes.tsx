@@ -23,9 +23,9 @@ const PrivateRoutes = ({ onLogout }: { onLogout: () => void }) => (
       <Route exact path="/search" component={SearchResultsScreen} />
 
       {/* Default tab redirect */}
-      <Route exact path="/">
+      {/* <Route exact path="/">
         <Redirect to="/home" />
-      </Route>
+      </Route> */}
 
     </IonRouterOutlet>
 

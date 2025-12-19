@@ -16,7 +16,7 @@ const AppRoutes = () => {
     localStorage.removeItem("user");
     setIsLoggedIn(false);
   };
-
+  
   return isLoggedIn ? (
     <PrivateRoutes onLogout={logout} />
   ) : (

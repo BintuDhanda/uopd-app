@@ -6,7 +6,12 @@ import Register from "../screens/Register";
 import RoleLogin from "../screens/RoleLogin";
 
 const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
+  
   <IonRouterOutlet>
+
+    <Route exact path="/">
+      <Redirect to="/login" />
+    </Route>
 
     <Route
       exact
@@ -15,20 +20,13 @@ const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
     />
 
     <Route exact path="/signup" component={Signup} />
-
+    <Route exact path="/register" component={Register} />
     <Route exact path="/roleLogin" component={RoleLogin} />
 
-    <Route
-      exact
-      path="/register"
-      component={Register}
-    />
-
-    {/* Acts as a catch-all fallback
-        Redirects any unknown route to / */}
     <Redirect to="/login" />
 
   </IonRouterOutlet>
+
 );
 
 export default PublicRoutes;
