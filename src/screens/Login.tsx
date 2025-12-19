@@ -62,7 +62,7 @@ const Login: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="login__role">
+                    {/* <div className="login__role">
                         <IonText className="label">Login as</IonText>
 
                         <div className="login__role-switch">
@@ -79,7 +79,7 @@ const Login: React.FC = () => {
                                 Doctor
                             </IonButton>
                         </div>
-                    </div>
+                    </div> */}
 
                     <IonText className="login__forgot">
                         Forgot Password?
@@ -91,10 +91,23 @@ const Login: React.FC = () => {
 
                     <IonText className="login__footer">
                         Don&apos;t have an account?{" "}
-                        <IonRouterLink routerLink="/register">
+                        <IonRouterLink routerLink="/signup">
                             <span>Sign Up</span>
                         </IonRouterLink>
                     </IonText>
+
+                    <div className="login__bottom-links">
+                        <IonText>
+                            Login as{" "}
+                            <IonRouterLink routerLink="/roleLogin">Admin</IonRouterLink>
+                            {" • "}
+                            <IonRouterLink routerLink="/roleLogin">Doctor</IonRouterLink>
+                            {" • "}
+                            <IonRouterLink routerLink="/roleLogin">Hospital</IonRouterLink>
+                            {" • "}
+                            <IonRouterLink routerLink="/roleLogin">Sales Partner</IonRouterLink>
+                        </IonText>
+                    </div>
 
                 </div>
             </IonContent>

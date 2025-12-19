@@ -11,14 +11,18 @@ import {
   shieldCheckmarkOutline,
   briefcaseOutline,
   documentOutline,
-  shieldOutline
+  shieldOutline,
+  personOutline,
+  businessOutline
 } from "ionicons/icons";
+
 
 const RoleLogin: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="role-login">
         <div className="role-login__container">
+
           {/* Header */}
           <div className="role-login__header">
             <div className="role-login__logo">
@@ -45,8 +49,12 @@ const RoleLogin: React.FC = () => {
               </div>
             </div>
 
-            <IonButton expand="block" className="btn btn--admin">
-              Admin Login
+            <IonButton
+              expand="block"
+              routerLink="/login/admin"
+              className="btn btn--admin"
+            >
+              Login
             </IonButton>
           </IonCard>
 
@@ -63,7 +71,11 @@ const RoleLogin: React.FC = () => {
             </div>
 
             <div className="role-card__actions">
-              <IonButton expand="block" routerLink="/login" className="btn btn--sales">
+              <IonButton
+                expand="block"
+                routerLink="/login"
+                className="btn btn--sales"
+              >
                 Login
               </IonButton>
 
@@ -78,11 +90,32 @@ const RoleLogin: React.FC = () => {
             </div>
           </IonCard>
 
+          {/* Doctor */}
+          <IonCard className="role-card">
+            <div className="role-card__info">
+              <div className="role-card__icon doctor">
+                <IonIcon icon={personOutline} />
+              </div>
+              <div>
+                <h3>Doctor</h3>
+                <p>View appointments & manage patients</p>
+              </div>
+            </div>
+
+            <IonButton
+              expand="block"
+              routerLink="/login/doctor"
+              className="btn btn--doctor"
+            >
+              Login
+            </IonButton>
+          </IonCard>
+
           {/* Hospital Admin */}
           <IonCard className="role-card">
             <div className="role-card__info">
               <div className="role-card__icon hospital">
-                <IonIcon icon={documentOutline} />
+                <IonIcon icon={businessOutline} />
               </div>
               <div>
                 <h3>Hospital Admin</h3>
@@ -90,7 +123,11 @@ const RoleLogin: React.FC = () => {
               </div>
             </div>
 
-            <IonButton expand="block" className="btn btn--hospital">
+            <IonButton
+              expand="block"
+              routerLink="/login/hospital"
+              className="btn btn--hospital"
+            >
               Login
             </IonButton>
           </IonCard>
@@ -110,4 +147,3 @@ const RoleLogin: React.FC = () => {
 };
 
 export default RoleLogin;
-

@@ -1,6 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 import { IonRouterOutlet } from "@ionic/react";
 import Login from "../screens/Login";
+import Signup from "../screens/Signup";
 import Register from "../screens/Register";
 import RoleLogin from "../screens/RoleLogin";
 
@@ -9,15 +10,13 @@ const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
 
     <Route
       exact
-      path="/"
-      component={RoleLogin}
-    />
-
-    <Route
-      exact
       path="/login"
       render={() => <Login onLogin={onLogin} />}
     />
+
+    <Route exact path="/signup" component={Signup} />
+
+    <Route exact path="/roleLogin" component={RoleLogin} />
 
     <Route
       exact
@@ -27,7 +26,7 @@ const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
 
     {/* Acts as a catch-all fallback
         Redirects any unknown route to / */}
-    <Redirect to="/" />
+    <Redirect to="/login" />
 
   </IonRouterOutlet>
 );

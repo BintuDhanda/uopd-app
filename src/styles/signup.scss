@@ -1,0 +1,118 @@
+.signup {
+    --background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+
+    &__container {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 40px 24px;
+    }
+
+    /* ---------- BACK ---------- */
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
+
+    &__back {
+        --color: oklch(.21 .034 264.665);
+        font-size: 14px;
+        padding: 0;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    &__header {
+        margin-bottom: 28px;
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        p {
+            margin: 0;
+            font-size: 15px;
+            color: #6b7280;
+        }
+    }
+
+    /* ---------- INPUTS ---------- */
+
+    &__field {
+        margin-bottom: 22px;
+
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+            display: block;
+        }
+    }
+
+    &__input {
+        height: 58px;
+        background: #f3f4f6;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        padding: 0 18px;
+        gap: 14px;
+
+        ion-icon {
+            font-size: 20px;
+            color: #9ca3af;
+        }
+
+        ion-input {
+            --background: transparent;
+            --padding-start: 0;
+            --padding-end: 0;
+            --highlight-height: 0;
+            --border-width: 0;
+            font-size: 16px;
+            color: #111827;
+        }
+
+        .eye {
+            margin-left: auto;
+        }
+    }
+
+    /* ---------- BUTTON ---------- */
+
+    &__btn {
+        --background: #155dfc;
+        --color: #ffffff;
+        --border-radius: 18px;
+        --box-shadow: none;
+        height: 58px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize;
+        margin-top: 10px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    &__footer {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        font-size: 14px;
+        color: #6b7280;
+
+        span {
+            color: #155dfc;
+            font-weight: 500;
+        }
+
+    }
+}

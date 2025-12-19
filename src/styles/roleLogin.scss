@@ -39,7 +39,7 @@
 
     ion-icon {
       font-size: 32px;
-      color: #fff;
+      color: #ffffff;
     }
   }
 
@@ -58,16 +58,6 @@
   padding: 18px;
   margin-bottom: 18px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-
-  .role-card__actions {
-    display: flex;
-    gap: 12px;
-  
-    ion-button {
-      flex: 1;
-    }
-  }
-  
 
   &--admin {
     border: 2px solid #e9d5ff;
@@ -110,6 +100,11 @@
       color: #2563eb;
     }
 
+    &.doctor {
+      background: #ecfeff;
+      color: #0891b2;
+    }
+
     &.hospital {
       background: #ecfdf5;
       color: #16a34a;
@@ -119,6 +114,10 @@
   &__actions {
     display: flex;
     gap: 12px;
+
+    ion-button {
+      flex: 1;
+    }
   }
 }
 
@@ -130,22 +129,32 @@
   height: 46px;
   font-size: 15px;
   font-weight: 500;
+  text-transform: capitalize;
 
   &--admin {
     --background: #7c3aed;
+    --color: #ffffff;
   }
 
   &--sales {
     --background: #2563eb;
+    --color: #ffffff;
   }
 
   &--sales-outline {
+    --background: transparent;
     --border-color: #2563eb;
     --color: #2563eb;
   }
 
+  &--doctor {
+    --background: #0891b2;
+    --color: #ffffff;
+  }
+
   &--hospital {
     --background: #16a34a;
+    --color: #ffffff;
   }
 }
 

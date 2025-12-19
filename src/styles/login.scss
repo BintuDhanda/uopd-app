@@ -9,6 +9,25 @@
         padding: 40px 24px;
     }
 
+    &__bottom-links {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: env(safe-area-inset-bottom);
+        padding: 14px 16px 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #6b7280;
+        background: #ffffff;
+
+        ion-router-link {
+            color: #155dfc;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    }
+
+
     /* ---------- HEADER ---------- */
 
     &__header {
@@ -92,7 +111,6 @@
                 opacity: 0.7;
             }
         }
-
 
     }
 
