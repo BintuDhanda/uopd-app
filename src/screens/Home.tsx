@@ -158,7 +158,7 @@ const Home: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                 { icon: eyeOutline, label: "Orthopedic", cls: "orange" },
                 { icon: gridOutline, label: "View All", cls: "indigo" },
               ].map((s, i) => (
-                <IonCol size="4" key={i}>
+                <IonCol size="4" sizeXs="6" sizeSm="4" key={i}>
                   <IonCard className="specialty-card">
                     <IonCardContent>
                       <div className={`icon ${s.cls}`}>

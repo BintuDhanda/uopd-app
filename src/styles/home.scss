@@ -214,16 +214,27 @@
     border-radius: 16px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
     text-align: center;
+    height: 108px; // ✅ FIXED HEIGHT
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
   
     ion-card-content {
       padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0px;
     }
   
     .icon {
       width: 54px;
       height: 54px;
       border-radius: 16px;
-      margin: 0 auto 8px;
+      margin-bottom: 8px;
+  
       display: flex;
       align-items: center;
       justify-content: center;
@@ -232,18 +243,25 @@
         font-size: 26px;
         color: #ffffff;
       }
-  
+      
       &.pink { background: #ff5b8a; }
       &.blue { background: #3b82f6; }
       &.purple { background: #c084fc; }
       &.green { background: #22c55e; }
       &.orange { background: #fb923c; }
-      &.indigo { background: #6366f1; }
+      &.indigo { background: #6366f1; }    
     }
   
     ion-text {
       font-size: 14px;
       font-weight: 500;
+      color: #6b7280;
+  
+      /* 🔑 CRITICAL FIX */
+      white-space: nowrap;       // no breaking
+      overflow: hidden;
+      text-overflow: ellipsis;   // graceful cut
+      max-width: 100%;
     }
   }
   
