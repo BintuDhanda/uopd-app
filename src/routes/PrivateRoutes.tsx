@@ -6,6 +6,7 @@ import MyAppointmentsTab from "../tabs/MyAppointmentsTab";
 import HelpDeskTab from "../tabs/HelpDeskTab";
 import SearchResultsScreen from "../screens/SearchResultsScreen";
 import BottomTabs from "../components/BottomTabs";
+import BookAppointment from "../screens/BookAppointment";
 
 const PrivateRoutes = ({ onLogout }: { onLogout: () => void }) => (
   <IonTabs>
@@ -17,6 +18,8 @@ const PrivateRoutes = ({ onLogout }: { onLogout: () => void }) => (
       )} />
 
       <Route exact path="/appointments" component={MyAppointmentsTab} />
+
+      <Route exact path="/book-appointment" component={BookAppointment} />
 
       <Route exact path="/helpdesk" component={HelpDeskTab} />
 

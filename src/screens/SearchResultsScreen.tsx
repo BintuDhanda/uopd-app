@@ -100,6 +100,7 @@ const results: SearchResult[] = [
 const SearchResultsScreen: React.FC = () => {
   const history = useHistory();
 
+
   const goBack = () => {
     history.goBack();
   };
@@ -228,6 +229,12 @@ interface ResultCardProps {
 
 const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
   const isHospital = result.kind === 'hospital';
+
+  const history = useHistory();
+
+  const goBookAppintment = () => history.push("/book-appointment");
+
+
 
   return (
     <div style={cardBaseStyle}>
@@ -446,6 +453,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
                 fontWeight: 600,
                 boxShadow: '0 16px 32px rgba(37,99,235,0.35)'
               }}
+              onClick={goBookAppintment}
             >
               Book Appointment
             </button>
