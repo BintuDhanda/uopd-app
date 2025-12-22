@@ -326,6 +326,12 @@
       font-weight: 500;
       color: var(--slot-text);
     }
+
+    &__slot--active {
+      background: oklch(.546 .245 262.881);
+      color: #ffffff;
+    }
+    
   
     /* ===== FEE CARD ===== */
   
@@ -395,5 +401,14 @@
   
       opacity: 1;
     }
+
+    &__confirm-button--active {
+      --background: oklch(.546 .245 262.881); // same blue as date active
+      --background-hover: oklch(.546 .245 262.881);
+      --background-activated: oklch(.546 .245 262.881);
+    
+      --color: #ffffff;
+    }
+    
   }
   
