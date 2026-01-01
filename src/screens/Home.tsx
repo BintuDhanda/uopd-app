@@ -100,7 +100,8 @@ const Home: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
               {/* Notification Icon */}
               <div
                 className="home-header__notification"
-                onClick={() => setDrawerOpen(true)}
+                // onClick={() => setDrawerOpen(true)}
+                onClick={() => history.push('/notification')}
               >
                 <IonIcon icon={notificationsOutline} />
                 <span className="home-header__dot" />

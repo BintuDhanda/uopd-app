@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { IonTabs, IonRouterOutlet } from "@ionic/react";
 
 import HomeTab from "../tabs/HomeTab";
@@ -13,6 +13,7 @@ import ManageProfile from "../screens/ManageProfile";
 import Appointments from "../screens/Appointments";
 import LabTests from "../screens/LabTests";
 import PaymentMethods from "../screens/PaymentMethods";
+import Notification from "../screens/Notification";
 
 const PrivateRoutes = ({ onLogout }: { onLogout: () => void }) => (
   <IonTabs>
@@ -32,12 +33,14 @@ const PrivateRoutes = ({ onLogout }: { onLogout: () => void }) => (
       <Route exact path="/search" component={SearchResultsScreen} />
 
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/notification" component={Notification} />
+
 
       <Route exact path="/patient-book" component={PatientBook} />
-        <Route exact path="/manage-profile" component={ManageProfile} />
-        <Route exact path="/appointments" component={Appointments} />
-        <Route exact path="/lab-tests" component={LabTests} />
-        <Route exact path="/payment-methods" component={PaymentMethods} />
+      <Route exact path="/manage-profile" component={ManageProfile} />
+      <Route exact path="/appointments" component={Appointments} />
+      <Route exact path="/lab-tests" component={LabTests} />
+      <Route exact path="/payment-methods" component={PaymentMethods} />
 
 
       {/* Default tab redirect */}
