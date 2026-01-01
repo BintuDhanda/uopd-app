@@ -1,43 +1,71 @@
 import {
   IonPage,
   IonContent,
-  IonText,
-  IonInput,
   IonButton,
-  IonIcon,
+  IonBackButton,
   IonRouterLink,
-  IonBackButton
+  IonText
 } from "@ionic/react";
 import {
   personOutline,
   mailOutline,
+  callOutline,
   lockClosedOutline,
   eyeOutline,
-  chevronBack,
-  callOutline
+  chevronBack
 } from "ionicons/icons";
 import { useState } from "react";
+import TextField from "../components/core/TextField";
 
 const Signup: React.FC = () => {
+  const [fullName, setFullName] = useState("");
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [identifier, setIdentifier] = useState("");
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSignup = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(identifier);
     const isPhone = /^[0-9]{8,15}$/.test(identifier);
 
-    if (!isEmail && !isPhone) {
-      alert("Enter a valid email or mobile number");
-      return;
+    if (!identifier) {
+      newErrors.identifier = "Email or mobile number is required";
+    } else if (!isEmail && !isPhone) {
+      newErrors.identifier = "Enter a valid email or mobile number";
     }
 
-    // continue signup logic here
-    console.log("Identifier:", identifier);
+    if (!password) {
+      newErrors.password = "Password is required";
+    } else if (password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+
+    if (!confirmPassword) {
+      newErrors.confirmPassword = "Confirm password is required";
+    } else if (confirmPassword !== password) {
+      newErrors.confirmPassword = "Passwords do not match";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
+
+    // API call goes here
+    console.log("Signup success", {
+      fullName,
+      identifier,
+      password
+    });
   };
-
-
 
   return (
     <IonPage>
@@ -61,73 +89,79 @@ const Signup: React.FC = () => {
           </div>
 
           {/* Full Name */}
-          <div className="signup__field">
-            <IonText className="label">Full Name</IonText>
-            <div className="signup__input">
-              <IonIcon icon={personOutline} />
-              <IonInput placeholder="Enter your full name" />
-            </div>
-          </div>
+          <TextField
+            label="Full Name"
+            required
+            value={fullName}
+            onChange={(v) => {
+              setFullName(v);
+              setErrors((e) => ({ ...e, fullName: "" }));
+            }}
+            placeholder="Enter your full name"
+            leftIcon={personOutline}
+            error={errors.fullName}
+          />
 
-          {/* Email */}
-          <div className="signup__field">
-            <IonText className="label">Email / Mobile Number</IonText>
-            <div className="signup__input">
-              <IonIcon
-                icon={/^\d+$/.test(identifier) ? callOutline : mailOutline}
-              />
-
-              <IonInput
-                inputMode="email"
-                placeholder="Enter email or mobile number"
-                value={identifier}
-                onIonInput={(e) => setIdentifier(e.detail.value!)}
-              />
-
-            </div>
-          </div>
+          {/* Email / Mobile */}
+          <TextField
+            label="Email / Mobile Number"
+            required
+            value={identifier}
+            onChange={(v) => {
+              setIdentifier(v);
+              setErrors((e) => ({ ...e, identifier: "" }));
+            }}
+            placeholder="Enter email or mobile number"
+            inputMode="email"
+            leftIcon={/^\d+$/.test(identifier) ? callOutline : mailOutline}
+            error={errors.identifier}
+          />
 
           {/* Password */}
-          <div className="signup__field">
-            <IonText className="label">Password</IonText>
-            <div className="signup__input">
-              <IonIcon icon={lockClosedOutline} />
-              <IonInput
-                type={showPassword ? "text" : "password"}
-                placeholder="Create a password"
-              />
-              <IonIcon
-                icon={eyeOutline}
-                className="eye"
-                onClick={() => setShowPassword(!showPassword)}
-              />
-            </div>
-          </div>
+          <TextField
+            label="Password"
+            required
+            value={password}
+            onChange={(v) => {
+              setPassword(v);
+              setErrors((e) => ({ ...e, password: "" }));
+            }}
+            placeholder="Create a password"
+            type={showPassword ? "text" : "password"}
+            leftIcon={lockClosedOutline}
+            rightIcon={eyeOutline}
+            onRightIconClick={() => setShowPassword(!showPassword)}
+            error={errors.password}
+          />
 
           {/* Confirm Password */}
-          <div className="signup__field">
-            <IonText className="label">Confirm Password</IonText>
-            <div className="signup__input">
-              <IonIcon icon={lockClosedOutline} />
-              <IonInput
-                type={showConfirm ? "text" : "password"}
-                placeholder="Confirm your password"
-              />
-              <IonIcon
-                icon={eyeOutline}
-                className="eye"
-                onClick={() => setShowConfirm(!showConfirm)}
-              />
-            </div>
-          </div>
+          <TextField
+            label="Confirm Password"
+            required
+            value={confirmPassword}
+            onChange={(v) => {
+              setConfirmPassword(v);
+              setErrors((e) => ({ ...e, confirmPassword: "" }));
+            }}
+            placeholder="Confirm your password"
+            type={showConfirm ? "text" : "password"}
+            leftIcon={lockClosedOutline}
+            rightIcon={eyeOutline}
+            onRightIconClick={() => setShowConfirm(!showConfirm)}
+            error={errors.confirmPassword}
+          />
 
-          {/* Button */}
-          <IonButton onClick={handleSignup} expand="block" className="signup__btn">
+          {/* Submit */}
+          <IonButton
+            expand="block"
+            className="signup__btn"
+            onClick={handleSignup}
+          >
             Create Account
           </IonButton>
 
           {/* Footer */}
-          <IonText className="login__footer">
+          <IonText className="signup__footer">
             Already have an account?{" "}
             <IonRouterLink routerLink="/login">
               Sign In

@@ -30,3 +30,98 @@ ion-content {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   }
   
+
+
+.text-field {
+  width: 100%;
+  margin-bottom: 22px;
+
+  /* ---------- LABEL ---------- */
+  &__label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  &__required {
+    margin-left: 4px;
+    color: #ef4444;
+  }
+
+  /* ---------- CONTROL ---------- */
+  &__control {
+    height: 58px;
+    width: 100%;
+    background: #f3f4f6;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 18px;
+    border: 1px solid transparent;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    ion-icon {
+      font-size: 20px;
+      color: #9ca3af;
+      transition: color 0.2s ease;
+    }
+
+    ion-input {
+      flex: 1;
+      --background: transparent;
+      --padding-start: 0;
+      --padding-end: 0;
+      --highlight-height: 0;
+      --border-width: 0;
+      font-size: 16px;
+      color: #111827;
+    }
+  }
+
+  /* ---------- RIGHT ICON (EYE) ---------- */
+  &__action {
+    margin-left: auto;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ---------- ERROR TEXT ---------- */
+  &__error {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ef4444;
+  }
+
+  /* ---------- FOCUS / ACTIVE ---------- */
+  &--focused {
+
+    .text-field__control {
+      background: #eef2ff;
+      border-color: #6366f1;
+    }
+
+    ion-icon {
+      color: #6366f1;
+    }
+  }
+
+  /* ---------- ERROR (OVERRIDES FOCUS) ---------- */
+  &--error {
+
+    .text-field__control {
+      background: #fef2f2;
+      border-color: #ef4444;
+    }
+
+    ion-icon {
+      color: #ef4444;
+    }
+  }
+}
