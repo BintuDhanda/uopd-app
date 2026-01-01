@@ -16,54 +16,27 @@ import {
 } from "ionicons/icons";
 import { useState } from "react";
 import TextField from "../components/core/TextField";
+import { validateSignup } from "../validation/signup.validation";
+import { useForm } from "../hooks/useForm";
 
 const Signup: React.FC = () => {
-  const [fullName, setFullName] = useState("");
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const { values, errors, setField, submit } = useForm(
+    {
+      fullName: "",
+      identifier: "",
+      password: "",
+      confirmPassword: ""
+    },
+    validateSignup
+  );
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const handleSignup = () => {
-    const newErrors: Record<string, string> = {};
-
-    if (!fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    }
-
-    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(identifier);
-    const isPhone = /^[0-9]{8,15}$/.test(identifier);
-
-    if (!identifier) {
-      newErrors.identifier = "Email or mobile number is required";
-    } else if (!isEmail && !isPhone) {
-      newErrors.identifier = "Enter a valid email or mobile number";
-    }
-
-    if (!password) {
-      newErrors.password = "Password is required";
-    } else if (password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
-    }
-
-    if (!confirmPassword) {
-      newErrors.confirmPassword = "Confirm password is required";
-    } else if (confirmPassword !== password) {
-      newErrors.confirmPassword = "Passwords do not match";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length > 0) return;
-
-    // API call goes here
-    console.log("Signup success", {
-      fullName,
-      identifier,
-      password
+  const handleSubmit = () => {
+    submit(() => {
+      // API call goes here
+      console.log("Signup success", values);
     });
   };
 
@@ -92,11 +65,8 @@ const Signup: React.FC = () => {
           <TextField
             label="Full Name"
             required
-            value={fullName}
-            onChange={(v) => {
-              setFullName(v);
-              setErrors((e) => ({ ...e, fullName: "" }));
-            }}
+            value={values.fullName}
+            onChange={(v) => setField("fullName", v)}
             placeholder="Enter your full name"
             leftIcon={personOutline}
             error={errors.fullName}
@@ -106,14 +76,15 @@ const Signup: React.FC = () => {
           <TextField
             label="Email / Mobile Number"
             required
-            value={identifier}
-            onChange={(v) => {
-              setIdentifier(v);
-              setErrors((e) => ({ ...e, identifier: "" }));
-            }}
+            value={values.identifier}
+            onChange={(v) => setField("identifier", v)}
             placeholder="Enter email or mobile number"
             inputMode="email"
-            leftIcon={/^\d+$/.test(identifier) ? callOutline : mailOutline}
+            leftIcon={
+              /^\d+$/.test(values.identifier)
+                ? callOutline
+                : mailOutline
+            }
             error={errors.identifier}
           />
 
@@ -121,11 +92,8 @@ const Signup: React.FC = () => {
           <TextField
             label="Password"
             required
-            value={password}
-            onChange={(v) => {
-              setPassword(v);
-              setErrors((e) => ({ ...e, password: "" }));
-            }}
+            value={values.password}
+            onChange={(v) => setField("password", v)}
             placeholder="Create a password"
             type={showPassword ? "text" : "password"}
             leftIcon={lockClosedOutline}
@@ -138,11 +106,8 @@ const Signup: React.FC = () => {
           <TextField
             label="Confirm Password"
             required
-            value={confirmPassword}
-            onChange={(v) => {
-              setConfirmPassword(v);
-              setErrors((e) => ({ ...e, confirmPassword: "" }));
-            }}
+            value={values.confirmPassword}
+            onChange={(v) => setField("confirmPassword", v)}
             placeholder="Confirm your password"
             type={showConfirm ? "text" : "password"}
             leftIcon={lockClosedOutline}
@@ -155,7 +120,7 @@ const Signup: React.FC = () => {
           <IonButton
             expand="block"
             className="signup__btn"
-            onClick={handleSignup}
+            onClick={handleSubmit}
           >
             Create Account
           </IonButton>
