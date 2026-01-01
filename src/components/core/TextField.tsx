@@ -11,7 +11,15 @@ interface TextFieldProps {
     onRightIconClick?: () => void;
 
     placeholder?: string;
-    type?: "text" | "email" | "password" | "tel";
+    type?: 
+  | "text"
+  | "email"
+  | "password"
+  | "tel"
+  | "date"
+  | "time"
+  | "datetime-local";
+
     inputMode?: "text" | "email" | "tel" | "numeric";
 
     required?: boolean;
@@ -81,3 +89,121 @@ const TextField: React.FC<TextFieldProps> = ({
 
 export default TextField;
 
+
+
+// import {
+//   IonInput,
+//   IonIcon,
+//   IonText,
+//   IonDatetime
+// } from "@ionic/react";
+// import { useState } from "react";
+
+// interface TextFieldProps {
+//   label: string;
+//   value: string;
+//   onChange: (value: string) => void;
+
+//   leftIcon?: string;
+//   rightIcon?: string;
+//   onRightIconClick?: () => void;
+
+//   placeholder?: string;
+
+//   type?:
+//     | "text"
+//     | "email"
+//     | "password"
+//     | "tel"
+//     | "date"
+//     | "time"
+//     | "datetime-local";
+
+//   inputMode?: "text" | "email" | "tel" | "numeric";
+
+//   required?: boolean;
+//   error?: string;
+// }
+
+// const TextField: React.FC<TextFieldProps> = ({
+//   label,
+//   value,
+//   onChange,
+//   leftIcon,
+//   rightIcon,
+//   onRightIconClick,
+//   placeholder,
+//   type = "text",
+//   inputMode,
+//   required,
+//   error
+// }) => {
+//   const [isFocused, setIsFocused] = useState(false);
+
+//   const isDateType =
+//     type === "date" || type === "time" || type === "datetime-local";
+
+//   return (
+//     <div
+//       className={[
+//         "text-field",
+//         error && "text-field--error",
+//         isFocused && "text-field--focused"
+//       ]
+//         .filter(Boolean)
+//         .join(" ")}
+//     >
+//       <IonText className="text-field__label">
+//         {label}
+//         {required && <span className="text-field__required">*</span>}
+//       </IonText>
+
+//       <div className="text-field__control">
+//         {leftIcon && <IonIcon icon={leftIcon} />}
+
+//         {/* 🔑 SWITCH BASED ON TYPE */}
+//         {isDateType ? (
+//           <IonDatetime
+//             presentation={
+//               type === "date"
+//                 ? "date"
+//                 : type === "time"
+//                 ? "time"
+//                 : "date-time"
+//             }
+//             value={value}
+//             onIonChange={(e) => onChange(e.detail.value as string)}
+//             onIonFocus={() => setIsFocused(true)}
+//             onIonBlur={() => setIsFocused(false)}
+//           />
+//         ) : (
+//           <IonInput
+//             value={value}
+//             type={type}
+//             inputMode={inputMode}
+//             placeholder={placeholder}
+//             onIonInput={(e) => onChange(e.detail.value!)}
+//             onIonFocus={() => setIsFocused(true)}
+//             onIonBlur={() => setIsFocused(false)}
+//             required={required}
+//             aria-required={required}
+//             aria-invalid={!!error}
+//           />
+//         )}
+
+//         {rightIcon && (
+//           <IonIcon
+//             icon={rightIcon}
+//             className="text-field__action"
+//             onMouseDown={(e) => e.preventDefault()}
+//             onClick={onRightIconClick}
+//           />
+//         )}
+//       </div>
+
+//       {error && <IonText className="text-field__error">{error}</IonText>}
+//     </div>
+//   );
+// };
+
+// export default TextField;

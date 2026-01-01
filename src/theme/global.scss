@@ -30,6 +30,9 @@ ion-content {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   }
   
+.datetime-trigger {
+  display: none;
+}
 
 
 .text-field {
@@ -64,6 +67,16 @@ ion-content {
     transition:
       background-color 0.2s ease,
       border-color 0.2s ease;
+
+       ion-datetime {
+    width: 100%;
+    --background: transparent;
+    --padding-start: 0;
+    --padding-end: 0;
+    --border-width: 0;
+    font-size: 16px;
+    color: #111827;
+  }
 
     ion-icon {
       font-size: 20px;
@@ -126,6 +139,193 @@ ion-content {
   }
 }
 
+/* =========================================================
+   SELECT FIELD (IonSelect specific overrides)
+   ========================================================= */
+
+.text-field--select {
+
+  .text-field__control {
+
+       /* 🔒 Disable Ionic focus underline */
+  ion-select {
+      --highlight-color-focused: transparent;
+      --highlight-color-valid: transparent;
+      --highlight-color-invalid: transparent;
+      --highlight-height: 0;
+    }
+
+    ion-select::part(placeholder) {
+      color: #9ca3af;
+      opacity: 1;
+      font-size: 16px;
+    }
+
+    ion-select::part(text) {
+      color: #111827;
+      font-size: 16px;
+    }
+
+    ion-select::part(icon) {
+      display: none;
+    }
+    cursor: pointer;
+
+
+
+    /* Ensure select fills space */
+    ion-select {
+      width: 100%;
+      pointer-events: none; // 👈 important
+    }
+  }
+
+  /* Custom chevron icon */
+  .text-field__action {
+    pointer-events: auto;   // 👈 allow click
+    color: #9ca3af;
+  }
+
+  /* Focus state */
+  &.text-field--focused {
+    .text-field__action {
+      color: #6366f1;
+    }
+  }
+
+  /* Error state */
+  &.text-field--error {
+    .text-field__action {
+      color: #ef4444;
+    }
+  }
+}
+
+
+// /* =========================================================
+//    CORE FORM FIELD
+//    Used by: TextField, SelectField, future fields
+//    ========================================================= */
+
+// .text-field {
+//   width: 100%;
+//   margin-bottom: 22px;
+
+//   /* ---------- LABEL ---------- */
+//   &__label {
+//     display: block;
+//     margin-bottom: 8px;
+//     font-size: 14px;
+//     font-weight: 500;
+//     color: #374151;
+//   }
+
+//   &__required {
+//     margin-left: 4px;
+//     color: #ef4444;
+//   }
+
+//   /* ---------- CONTROL ---------- */
+//   &__control {
+//     height: 58px;
+//     width: 100%;
+//     background: #f3f4f6;
+//     border-radius: 18px;
+
+//     display: flex;
+//     align-items: center;
+//     gap: 14px;
+//     padding: 0 18px;
+
+//     border: 1px solid transparent;
+
+//     transition:
+//       background-color 0.2s ease,
+//       border-color 0.2s ease;
+
+//       ion-select::part(icon) {
+//     display: none; // 🔒 hide Ionic default arrow
+//   }
+
+//     /* LEFT ICON */
+//     ion-icon {
+//       font-size: 20px;
+//       color: #9ca3af;
+//       flex-shrink: 0;
+//       transition: color 0.2s ease;
+//     }
+
+//     /* INPUT + SELECT (SHARED) */
+//     ion-input,
+//     ion-select {
+//       flex: 1;
+
+//       --background: transparent;
+//       --padding-start: 0;
+//       --padding-end: 0;
+//       --highlight-height: 0;
+//       --border-width: 0;
+
+//       font-size: 16px;
+//       color: #111827;
+//     }
+
+//     /* SELECT DROPDOWN ICON */
+//     ion-select::part(icon) {
+//       color: #9ca3af;
+//       font-size: 18px;
+//     }
+//   }
+
+//   /* ---------- RIGHT ACTION ICON (EYE / CLEAR) ---------- */
+//   &__action {
+//     margin-left: auto;
+//     cursor: pointer;
+//     user-select: none;
+//     -webkit-tap-highlight-color: transparent;
+//   }
+
+//   /* ---------- ERROR TEXT ---------- */
+//   &__error {
+//     display: block;
+//     margin-top: 6px;
+//     font-size: 12px;
+//     font-weight: 400;
+//     color: #ef4444;
+//   }
+
+//   /* ---------- FOCUSED STATE ---------- */
+//   &--focused {
+//     .text-field__control {
+//       background: #eef2ff;
+//       border-color: #6366f1;
+//     }
+
+//     ion-icon {
+//       color: #6366f1;
+//     }
+
+//     ion-select::part(icon) {
+//       color: #6366f1;
+//     }
+//   }
+
+//   /* ---------- ERROR STATE (OVERRIDES FOCUS) ---------- */
+//   &--error {
+//     .text-field__control {
+//       background: #fef2f2;
+//       border-color: #ef4444;
+//     }
+
+//     ion-icon {
+//       color: #ef4444;
+//     }
+
+//     ion-select::part(icon) {
+//       color: #ef4444;
+//     }
+//   }
+// }
 
 
 // ==========Header=============
