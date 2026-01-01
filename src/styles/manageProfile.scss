@@ -1,0 +1,360 @@
+// .manage-profile {
+//   --background: #f5f7fb;
+//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+//     Roboto, Helvetica, Arial, sans-serif;
+
+//   padding: 16px 16px 32px;
+//   padding-bottom: calc(32px + env(safe-area-inset-bottom));
+// }
+
+// /* ================= HEADER ================= */
+
+// .manage-header {
+//   ion-toolbar {
+//     --background: #ffffff;
+//     --border-color: #e5e7eb;
+//     --min-height: 56px;
+//   }
+
+//   ion-title {
+//     font-size: 18px;
+//     font-weight: 600;
+//     color: #111827;
+//   }
+
+//   .save-btn {
+//     --background: #2563eb;
+//     --color: #ffffff;
+//     --border-radius: 999px;
+//     --padding-start: 16px;
+//     --padding-end: 18px;
+//     --box-shadow: none;
+
+//     height: 36px;
+//     font-size: 14px;
+//     font-weight: 500;
+//     text-transform: capitalize;
+
+//     ion-icon {
+//       font-size: 16px;
+//     }
+//   }
+// }
+
+// /* ================= AVATAR ================= */
+
+// .avatar-section {
+//   display: flex;
+//   align-items: center;
+//   gap: 16px;
+
+//   background: #ffffff;
+//   padding: 16px;
+//   margin-bottom: 16px;
+//   border-bottom: 1px solid #e5e7eb;
+
+//   .avatar {
+//     width: 72px;
+//     height: 72px;
+//     border-radius: 50%;
+//     background: linear-gradient(135deg, #2563eb, #4f8dfd);
+//     color: #ffffff;
+
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     font-size: 26px;
+//     font-weight: 600;
+//   }
+
+//   .change-photo {
+//     height: 40px;
+//     padding: 0 18px;
+//     border-radius: 999px;
+//     background: #f3f4f6;
+
+//     font-size: 14px;
+//     font-weight: 500;
+//     color: #374151;
+
+//     &:active {
+//       opacity: 0.85;
+//     }
+//   }
+// }
+
+// /* ================= CARD ================= */
+
+// .card {
+//   background: #ffffff;
+//   border-radius: 20px;
+//   padding: 24px;
+//   margin-bottom: 16px;
+
+//   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+
+//   .card-title {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+
+//     font-size: 18px;
+//     font-weight: 600;
+//     color: #111827;
+//     margin-bottom: 20px;
+
+//     ion-icon {
+//       font-size: 22px;
+//       color: #2563eb;
+//     }
+
+//     &.green ion-icon {
+//       color: #22c55e;
+//     }
+//   }
+// }
+
+// /* ================= FIELD SYSTEM (MATCHES LOGIN) ================= */
+
+// .manage__field {
+//   margin-bottom: 22px;
+
+//   .label {
+//     font-size: 14px;
+//     font-weight: 500;
+//     color: #374151;
+//     margin-bottom: 8px;
+//     display: block;
+//   }
+// }
+
+// .manage__input {
+//   height: 58px;
+//   background: #f3f4f6;
+//   border-radius: 18px;
+
+//   display: flex;
+//   align-items: center;
+//   padding: 0 18px;
+//   gap: 14px;
+
+//   ion-icon {
+//     font-size: 20px;
+//     color: #9ca3af;
+//     flex-shrink: 0;
+//   }
+
+//   ion-input,
+//   ion-select {
+//     --background: transparent;
+//     --padding-start: 0;
+//     --padding-end: 0;
+//     --highlight-height: 0;
+//     --border-width: 0;
+
+//     font-size: 16px;
+//     color: #111827;
+//   }
+
+//   ion-select::part(icon) {
+//     color: #9ca3af;
+//     font-size: 18px;
+//   }
+// }
+
+// /* ================= TWO COLUMN ROW ================= */
+
+// .card .row {
+//   display: flex;
+//   gap: 12px;
+
+//   > .manage__field {
+//     flex: 1;
+//   }
+// }
+
+.manage-profile {
+  --background: #f5f7fb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+
+  padding: 16px;
+//   padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+/* ================= HEADER ================= */
+
+.manage-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: #e5e7eb;
+    --min-height: 56px;
+  }
+
+  ion-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .save-btn {
+    --background: #2563eb;
+    --color: #ffffff;
+    --border-radius: 999px;
+    --padding-start: 16px;
+    --padding-end: 18px;
+    --box-shadow: none;
+
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    ion-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+/* ================= AVATAR ================= */
+
+.avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 12px;
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #4f8dfd);
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .change-photo {
+    height: 40px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: #f3f4f6;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+
+    &:active {
+      opacity: 0.85;
+    }
+  }
+}
+
+/* ================= CARD ================= */
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 12px;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+
+    ion-icon {
+      font-size: 22px;
+      color: #2563eb;
+    }
+
+    &.green ion-icon {
+      color: #22c55e;
+    }
+  }
+}
+
+/* ================= FIELD SYSTEM (LOGIN MATCH) ================= */
+
+.manage__field {
+  margin-bottom: 22px;
+
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+    display: block;
+  }
+}
+
+.manage__input {
+  height: 58px;
+  background: #f3f4f6;
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 14px;
+
+  ion-icon {
+    font-size: 20px;
+    color: #9ca3af;
+    flex-shrink: 0;
+  }
+
+  ion-input,
+  ion-select {
+    --background: transparent;
+    --padding-start: 0;
+    --padding-end: 0;
+    --highlight-height: 0;
+    --border-width: 0;
+
+    font-size: 16px;
+    color: #111827;
+  }
+
+  ion-select::part(icon) {
+    color: #9ca3af;
+    font-size: 18px;
+  }
+}
+
+/* Remove extra space after last field inside card */
+.card .manage__field:last-child {
+  margin-bottom: 0;
+}
+
+/* ================= TWO COLUMN ROW ================= */
+
+.card .row {
+  display: flex;
+  gap: 12px;
+
+  > .manage__field {
+    flex: 1;
+  }
+}
+

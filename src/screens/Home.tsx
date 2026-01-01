@@ -23,6 +23,7 @@ import {
   documentTextOutline,
   flaskOutline,
   eyeOutline,
+  personOutline,
 } from "ionicons/icons";
 import Drawer from "../components/Drawer";
 import { useHistory } from "react-router";
@@ -94,13 +95,26 @@ const Home: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
               </div>
             </div>
 
-            <div
-              className="home-header__notification"
-              onClick={() => setDrawerOpen(true)}
-            >
-              <IonIcon icon={notificationsOutline} />
-              <span className="home-header__dot" />
+            <div className="home-header__actions">
+
+              {/* Notification Icon */}
+              <div
+                className="home-header__notification"
+                onClick={() => setDrawerOpen(true)}
+              >
+                <IonIcon icon={notificationsOutline} />
+                <span className="home-header__dot" />
+              </div>
+
+              {/* Profile Icon */}
+              <div
+                className="home-header__profile"
+                onClick={() => history.push('/profile')}
+              >
+                <IonIcon icon={personOutline} />
+              </div>
             </div>
+
           </div>
 
           <IonSearchbar
