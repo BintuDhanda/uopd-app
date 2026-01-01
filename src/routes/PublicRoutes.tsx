@@ -4,9 +4,11 @@ import Login from "../screens/Login";
 import Signup from "../screens/Signup";
 import Register from "../screens/Register";
 import RoleLogin from "../screens/RoleLogin";
+import ForgotPassword from "../screens/ForgotPassword";
+import ResetPassword from "../screens/ResetPassword";
 
 const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
-  
+
   <IonRouterOutlet>
 
     <Route exact path="/">
@@ -22,6 +24,8 @@ const PublicRoutes = ({ onLogin }: { onLogin: () => void }) => (
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/roleLogin" component={RoleLogin} />
+    <Route exact path="/forgot-password" component={ForgotPassword} />
+    <Route exact path="/reset-password" component={ResetPassword} />
 
     <Redirect to="/login" />
 

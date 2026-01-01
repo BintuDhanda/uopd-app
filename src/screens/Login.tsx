@@ -21,7 +21,7 @@ import { useForm } from "../hooks/useForm";
 
 const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   const ionRouter = useIonRouter();
-   const { values, errors, setField, submit } = useForm(
+  const { values, errors, setField, submit } = useForm(
     {
       email: "",
       password: ""
@@ -80,8 +80,17 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
 
           {/* Forgot password */}
           <IonText className="login__forgot">
-            Forgot Password?
+            <IonRouterLink routerLink="/forgot-password">
+              <span>Forgot Password?</span>
+            </IonRouterLink>
           </IonText>
+
+            {/* Forgot password */}
+          {/* <IonText className="login__forgot">
+            <IonRouterLink routerLink="/reset-password">
+              <span>Forgot Password?</span>
+            </IonRouterLink>
+          </IonText> */}
 
           {/* Submit */}
           <IonButton
