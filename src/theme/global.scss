@@ -125,3 +125,85 @@ ion-content {
     }
   }
 }
+
+
+
+// ==========Header=============
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: none;
+
+
+  &::after {
+    display: none;
+  }
+
+  &__toolbar {
+    --background: #ffffff;
+    --border-width: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  &__inner {
+    padding: 16px 20px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__back-button {
+    --background: oklch(.967 .003 264.542);
+    --background-hover: #f3f4f6;
+    --background-activated: #e5e7eb;
+    --background-focused: #f3f4f6;
+
+    --border-radius: 999px;
+    --padding-start: 0;
+    --padding-end: 0;
+
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+
+    margin-right: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: 22px;
+      color: #111827;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: oklch(.21 .034 264.665);
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: oklch(.551 .027 264.364);
+    margin-top: 4px;
+  }
+
+  &__right {
+    margin-left: auto;
+  }
+}
+

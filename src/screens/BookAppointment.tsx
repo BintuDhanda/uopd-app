@@ -1,20 +1,17 @@
 import { useState } from 'react';
 import {
   IonPage,
-  IonHeader,
-  IonToolbar,
   IonContent,
   IonIcon,
   IonButton,
-  IonText
 } from '@ionic/react';
 import {
   calendarOutline,
   timeOutline,
   star,
   locationOutline,
-  chevronBack
 } from 'ionicons/icons';
+import Header from '../components/common/Header';
 
 const dates = [
   { day: 'Fri', date: 6, disabled: false },
@@ -43,30 +40,10 @@ const BookAppointment: React.FC = () => {
   return (
     <IonPage className="book-appointment">
       {/* HEADER */}
-      <IonHeader className="book-appointment__header">
-        <IonToolbar className="book-appointment__toolbar">
-          <div className="book-appointment__header-inner">
-            <div className="book-appointment__header-row">
-              <IonButton
-                fill="clear"
-                className="book-appointment__back-button"
-                onClick={() => window.history.back()}
-              >
-                <IonIcon icon={chevronBack} />
-              </IonButton>
-
-              <div className="book-appointment__header-text">
-                <IonText className="book-appointment__header-title">
-                  Book Appointment
-                </IonText>
-                <IonText className="book-appointment__header-subtitle">
-                  Schedule your consultation
-                </IonText>
-              </div>
-            </div>
-          </div>
-        </IonToolbar>
-      </IonHeader>
+      <Header
+        title="Book Appointment"
+        subtitle="Schedule your consultation"
+      />
 
       <IonContent fullscreen className="book-appointment__content">
         <div className="book-appointment__container">

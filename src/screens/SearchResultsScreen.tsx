@@ -7,7 +7,6 @@ import {
   IonText
 } from '@ionic/react';
 import {
-  chevronBack,
   funnelOutline,
   locationOutline,
   star,
@@ -15,28 +14,29 @@ import {
   ribbonOutline
 } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
+import Header from '../components/common/Header';
 
 type SearchResult =
   | {
-      kind: 'hospital';
-      id: number;
-      imageUrl: string;
-      name: string;
-      city: string;
-      rating: string;
-      reviews: string;
-    }
+    kind: 'hospital';
+    id: number;
+    imageUrl: string;
+    name: string;
+    city: string;
+    rating: string;
+    reviews: string;
+  }
   | {
-      kind: 'doctor';
-      id: number;
-      imageUrl: string;
-      name: string;
-      speciality: string;
-      degree: string;
-      rating: string;
-      experience: string;
-      city: string;
-    };
+    kind: 'doctor';
+    id: number;
+    imageUrl: string;
+    name: string;
+    speciality: string;
+    degree: string;
+    rating: string;
+    experience: string;
+    city: string;
+  };
 
 const results: SearchResult[] = [
   {
@@ -112,66 +112,11 @@ const SearchResultsScreen: React.FC = () => {
         style={{ '--background': '#f5f6fa' } as React.CSSProperties}
       >
         {/* HEADER */}
-        <div
-          style={{
-            background: '#ffffff',
-            padding: '14px 20px 12px',
-            borderBottom: '1px solid #e5e7eb',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center'
-            }}
-          >
-            <button
-              onClick={goBack}
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '999px',
-                border: 'none',
-                background: '#f3f4f6',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginRight: '12px',
-                cursor: 'pointer'
-              }}
-            >
-              <IonIcon
-                icon={chevronBack}
-                style={{ fontSize: '22px', color: '#111827' }}
-              />
-            </button>
-
-            <div>
-              <IonText
-                style={{
-                  fontSize: '22px',
-                  fontWeight: 700,
-                  color: '#111827',
-                  display: 'block',
-                  marginBottom: '6px'
-                }}
-              >
-                Search Results
-              </IonText>
-              <IonText
-                style={{
-                  fontSize: '14px',
-                  color: '#6b7280'
-                }}
-              >
-                5 results found
-              </IonText>
-            </div>
-          </div>
-        </div>
+        <Header
+          title="Search Results"
+          subtitle="5 results found"
+          onBack={goBack}
+        />
 
         {/* BODY */}
         <div style={{ padding: '16px 16px 100px' }}>

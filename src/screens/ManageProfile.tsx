@@ -1,64 +1,43 @@
-// import { IonPage, IonContent, IonText } from '@ionic/react';
-
-// const ManageProfile: React.FC = () => {
-//   return (
-//     <IonPage>
-//       <IonContent fullscreen>
-//         <IonText>
-//           <h1>Manage Profile</h1>
-//         </IonText>
-//       </IonContent>
-//     </IonPage>
-//   );
-// };
-
-// export default ManageProfile;
-
-
 import {
   IonPage,
   IonContent,
-  IonHeader,
-  IonToolbar,
-  IonButtons,
-  IonBackButton,
-  IonTitle,
-  IonButton,
   IonIcon,
   IonInput,
   IonSelect,
   IonSelectOption,
-  IonText,
+  IonText
 } from "@ionic/react";
 import {
-  saveOutline,
   personOutline,
   locationOutline,
   calendarOutline,
   callOutline,
-  mailOutline,
+  mailOutline
 } from "ionicons/icons";
+import { useLocation } from "react-router-dom";
+import Header from "../components/common/Header";
 
+interface HeaderState {
+  title: string;
+  subtitle?: string;
+}
 
 const ManageProfile: React.FC = () => {
+  const location = useLocation();
+
+  // ✅ Read header from route state (menu → page)
+  const header: HeaderState = (location.state as any)?.header ?? {
+    title: "Manage Profile",
+    subtitle: "Update your personal details"
+  };
+
   return (
     <IonPage>
-      <IonHeader className="manage-header">
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/profile" />
-          </IonButtons>
-
-          <IonTitle>Manage Profile</IonTitle>
-
-          <IonButtons slot="end">
-            <IonButton className="save-btn">
-              <IonIcon icon={saveOutline} slot="start" />
-              Save
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+      {/* COMMON HEADER */}
+      <Header
+        title={header.title}
+        subtitle={header.subtitle}
+      />
 
       <IonContent fullscreen className="manage-profile">
         {/* AVATAR */}
